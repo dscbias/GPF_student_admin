@@ -1,23 +1,16 @@
-
-name: deploy_to_firebase_hosting
-
-on:
-  push:
-    tags:
-      - release-production-*
-
+on: push
+name: Publish Website
 jobs:
-  deploy_to_firebase_hosting:
-
+  FTP-Deploy-Action:
+    name: FTP-Deploy-Action
     runs-on: ubuntu-latest
-    
     steps:
-      - name: Checkout the repository
-        uses: actions/checkout@master
-      
-      - name: Deploy to Firebase
-        uses: w9jds/firebase-action@master
-        with:
-          args: deploy --only hosting
-        env:
-          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+    - uses: actions/checkout@v2.1.0
+      with:
+        fetch-depth: 2
+    - name: FTP-Deploy-Action
+      uses: SamKirkland/FTP-Deploy-Action@3.1.1
+      with:
+        ftp-server: ftp://files.000webhost.com
+        ftp-username: dsc-gpf
+        ftp-password: wxz6QWU7B6CS$$Y
