@@ -12,5 +12,4 @@ jobs:
         host: files.000webhost.com
         user: dsc-gpf
         password: dsc@-#gpf
-        localDir: "/"
         remoteDir: "public_html"
