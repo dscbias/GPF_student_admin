@@ -14,5 +14,5 @@ jobs:
         ftp-server: files.000webhost.com
         ftp-username: dsc-gpf
         ftp-password: dsc@-#gpf
-        git-ftp-args: --insecure  
-        remote-root: /public_html/
+        git-ftp-args: --insecure
+                      --remote-root /public_html/
