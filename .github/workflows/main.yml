@@ -9,7 +9,7 @@ jobs:
       with:
         fetch-depth: 2
     - name: FTP-Deploy-Action
-      uses: SamKirkland/FTP-Deploy-Action@3.1.1
+      uses: SamKirkland/FTP-Deploy-Action@da0d77ff390a13097c60f9b9eb954e503a480d97
       with:
         ftp-server: ftp://files.000webhost.com
         ftp-username: dsc-gpf
