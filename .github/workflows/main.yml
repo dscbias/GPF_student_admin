@@ -13,4 +13,4 @@ jobs:
       with:
         ftp-server: ftp://files.000webhost.com
         ftp-username: dsc-gpf
-        ftp-password: 12345678
+        ftp-password: dsc@-#gpf
