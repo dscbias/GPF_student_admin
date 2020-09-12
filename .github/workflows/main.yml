@@ -14,4 +14,4 @@ jobs:
         ftp-server: files.000webhost.com
         ftp-username: dsc-gpf
         ftp-password: dsc@-#gpf
-        local-dir: /public_html/
+        local-dir: public_html/
