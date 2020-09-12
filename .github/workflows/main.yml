@@ -11,6 +11,6 @@ jobs:
     - name: FTP-Deploy-Action
       uses: SamKirkland/FTP-Deploy-Action@3.1.1
       with:
-        ftp-server: ftp://files.000webhost.com
+        ftp-server: files.000webhost.com
         ftp-username: cosmictunnel376@gmail.com
         ftp-password: dsc@-#gpf
