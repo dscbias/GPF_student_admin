@@ -1,3 +1,3 @@
 <?php
-echo "GPF Intern Management System";
+echo "Hello World!";
 ?>
