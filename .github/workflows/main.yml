@@ -1,16 +1,16 @@
 on: push
 name: Publish Website
 jobs:
-  deploy:
-    name: Deploy
+  FTP-Deploy-Action:
+    name: FTP-Deploy-Action
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - name: Upload ftp
-      uses: sebastianpopp/ftp-action@releases/v2
-      with:
-        host: files.000webhost.com
-        user: dsc-gpf
-        password: dsc@-#gpf
-        localDir: "./"
-        remoteDir: "public_html"
+    - uses: actions/checkout@master
+    - name: FTP-Deploy-Action
+      uses: SamKirkland/FTP-Deploy-Action@2.0.0
+      env:
+        FTP_SERVER: files.000webhost.com
+        FTP_USERNAME: dsc-gpf
+        FTP_PASSWORD: dsc@-#gpf
+        REMOTE_DIR: public_html
+        ARGS: --transfer-all
