@@ -64,68 +64,6 @@
   <script src="../assets/demo/datatables-demo.js"></script>
   <script src="../main/scripts.js"></script>
 
-  <script>
-    $('#summernote').summernote({
-      placeholder: "Start typing...",
-      tabsize: 2,
-      minHeight: 300,
-      minwidth: 700,
-      spellCheck: true,
-      toolbar: [
-    ['style', ['style']],
-    ['font', ['bold', 'italic', 'underline', 'clear', 'strikethrough', 'superscript', 'subscript']],
-    ['fontname', ['fontname']],
-    ['fontsize', ['fontsize']],
-    ['color', ['color']],
-    ['para', ['ul', 'ol', 'paragraph']],
-    ['height', ['height']],
-    ['table', ['table']],
-    ['insert', ['link', 'picture', 'video', 'hr']],
-    ['view', ['fullscreen', 'codeview']],
-    ['help', ['help']],
-    ['undo', ['undo']],
-    ['redo', ['redo']]
-  ],
-    });
-
-    document.querySelector('.note-editor').style = 'width: -webkit-fill-available';
-    $('.note-toolbar').addClass('text-center');
-
-    $('#save_changes').click(function() {
-      var content = $('#summernote').summernote('code');
-      var dep = $('#save_changes').data("dep");
-      action = "update_dep_data";
-      console.log(content);
-      data = {
-        action: action,
-        content: content,
-        dep: dep
-      };
-      if (confirm("Are you Sure?")) {
-        jQuery.ajax({
-          type: 'POST',
-          url: 'dep_script.php',
-          data: data,
-          dataType: 'json',
-          success: function(res) {
-            if(res.msg == "success") {
-              console.log("Success");
-            } else {
-              console.log("Failed: ", res);
-            }
-
-          },
-          error: function(xhr, ajaxOptions, thrownError) {
-            // modalStart(charachter, "Not Found");
-            console.log(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
-          }
-        });
-      } else {
-        return false;
-      }
-    });
-  </script>
-
 </body>
 
 </html>
