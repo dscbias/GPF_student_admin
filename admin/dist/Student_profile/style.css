@@ -1,0 +1,39 @@
+body{
+  font-family: sans-serif;
+}
+h5{
+  padding:5%;
+}
+.btns{
+   margin:3%;
+}
+.name{
+font-size: 1.5rem;
+  font-weight: bold;
+}
+.profile{
+border-radius: 50%;
+width:45%;
+margin: 7% 0 0 27%;
+padding:5px;
+border:6px solid #DEDEDE;
+}
+.Abtn{
+  margin:2%;
+}
+.mainProfile{
+background: linear-gradient(to bottom, #0492C2, white 30%);
+text-align: center;
+}
+.dark{
+  background-color:  #F5F5F5;
+  font-size: 1rem;
+  font-weight: bold;
+}
+span{
+  border-radius: 20%;
+  background-color: grey;
+  line-height:3;
+  padding:1%;
+  margin:1.5%;
+}
