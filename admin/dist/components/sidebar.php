@@ -8,7 +8,10 @@
                   Dashboard
               </a>
               <div class="sb-sidenav-menu-heading">Interface</div>
-              <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+
+              <!-- DROPDOWN MENU -->
+
+              <!-- <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
                   <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                   Features
                   <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
@@ -18,8 +21,41 @@
                       <a class="nav-link" href="/admin/dist/departments/department_one.php">Department 1</a>
                       <a class="nav-link" href="/admin/dist/departments/department_two.php">Department 2</a>
                   </nav>
-              </div>
-              <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
+              </div> -->
+
+
+
+
+
+
+              <a class="nav-link" href="/admin/dist/add_task">
+                  <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
+                  Add Task
+              </a>
+              <a class="nav-link" href="/admin/dist/members">
+                  <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
+                  Members
+              </a>
+              <a class="nav-link" href="/admin/dist/tasks">
+                  <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+                  Tasks
+              </a>
+              <a class="nav-link" href="/admin/dist/tasks">
+                  <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+                  Reports
+              </a>
+
+
+
+
+
+
+
+
+
+              <!-- PAGES MENU -->
+
+              <!-- <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
                   <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
                   Pages
                   <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
@@ -37,7 +73,8 @@
                           </nav>
                       </div>
                   </nav>
-              </div>
+              </div> -->
+
               <div class="sb-sidenav-menu-heading">Addons</div>
               <a class="nav-link" href="/admin/dist/charts.php">
                   <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>

@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   <meta name="description" content="" />
   <meta name="author" content="" />
-  <title>Departments</title>
+  <title>Student Profile</title>
 
   <link href="../css/styles.css" rel="stylesheet" />
   <link rel="stylesheet" href="style.css?v=<?php echo time();?>">
@@ -34,48 +34,46 @@
 
     <div id="layoutSidenav_content">
       <main>
-          <div class="container-fluid">
-            <h1 class="mt-4">Department 1</h1>
-            <ol class="breadcrumb mb-4">
-                <li class="breadcrumb-item"><a href="/admin/dist/index.php">Dashboard</a></li>
-                <li class="breadcrumb-item active">Department 1</li>
-            </ol>
+        <div class="container-fluid">
+          <h1 class="mt-4">Student Profile</h1>
+          <ol class="breadcrumb mb-4">
+            <li class="breadcrumb-item"><a href="/admin/dist/index.php">Dashboard</a></li>
+            <li class="breadcrumb-item active">Student Profile</li>
+          </ol>
 
-                  <div class="card-body">
-                    <div class="card-deck">
-                 <div class="card mainProfile">
-               <img class="profile" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Steve_Jobs_Headshot_2010-CROP.jpg/1200px-Steve_Jobs_Headshot_2010-CROP.jpg" class="card-img-top" alt="...">
-                   <div class="card-body">
-            <h5 class="card-title name">Steve Jobs</h5>
-            <button type="button" class="btn btn-info Abtn">Active</button>
-            <button type="button" class="btn btn-info Abtn">Inactive</button>
+          <div class="card-body">
+            <div class="card-deck">
+              <div class="card mainProfile">
+                <img class="profile" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Steve_Jobs_Headshot_2010-CROP.jpg/1200px-Steve_Jobs_Headshot_2010-CROP.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title name">Steve Jobs</h5>
+                  <button type="button" class="btn btn-info Abtn">Active</button>
+                  <button type="button" class="btn btn-info Abtn">Inactive</button>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-body">
+                  <p class="dark">Bio</p>
+                  <p>American business magnate, industrial designer, investor, and media proprietor</p>
+                  <p class="dark">Email</p>
+                  <p>stevejob123@gmaill.com</p>
+                  <p class="dark">Mobile</p>
+                  <p>No Data Found</p>
+                  <p class="dark">User ID</p>
+                  <p>Admin</p>
+                  <p class="dark">Social Links</p>
+                  <p><span> Github <ion-icon name="logo-github"></ion-icon></span>
+                    <span> LinkedIn <ion-icon name="logo-linkedin"></ion-icon> </span>
+                    <span> Instagram <ion-icon name="logo-instagram"></ion-icon> </span>
+                    <span> Facebook <ion-icon name="logo-facebook"></ion-icon> </span> </p>
+
+                </div>
+              </div>
+
+            </div>
+
           </div>
         </div>
-        <div class="card">
-  <div class="card-body">
-    <p class="dark">Bio</p>
-    <p>American business magnate, industrial designer, investor, and media proprietor</p>
-    <p class="dark">Email</p>
-    <p>stevejob123@gmaill.com</p>
-    <p class="dark">Mobile</p>
-    <p>No Data Found</p>
-    <p class="dark">User ID</p>
-    <p>Admin</p>
-    <p class="dark">Social Links</p>
-    <p><span> Github <ion-icon name="logo-github"></ion-icon></span>
-      <span> LinkedIn <ion-icon name="logo-linkedin"></ion-icon> </span>
-       <span> Instagram <ion-icon name="logo-instagram"></ion-icon> </span>
-        <span> Facebook <ion-icon name="logo-facebook"></ion-icon> </span> </p>
-
-  </div>
-</div>
-
-      </div>
-
-              </div>
-              <div style="height: 100vh;"></div>
-              <div class="card mb-4"><div class="card-body">When scrolling, the navigation stays at the top of the page. This is the end of the static navigation demo.</div></div>
-          </div>
       </main>
       <?php include '../components/footer.php' ?>
     </div>
