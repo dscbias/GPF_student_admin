@@ -2,8 +2,9 @@
 <html>
 
 <head>
+
     <meta http-equiv="refresh" content="0;url=dist/index.php">
-    <title>SB Admin</title>
+    <title> GARIMA SB Admin</title>
     <script language="javascript">
         window.location.href = "dist/index.php"
     </script>
