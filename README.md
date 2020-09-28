@@ -1,1 +1,2 @@
-# GPF_student_admin
+# GPF Intern Management System
+
