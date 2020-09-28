@@ -46,7 +46,7 @@
             <div class="card-body">
               <div class="row">
                 <div class="col-lg-3">
-                  <div class="text-center" style="background-color:#DCDCDC; padding:2rem">
+                  <div class="text-center" style="background-color:#DCDCDC;">
                     <div class="form-group">
                       <button class="btn btn-info" type="button" name="button">Ongoing Tasks</button>
                     </div>
@@ -60,7 +60,7 @@
 
                 </div>
                 <div class="col-lg-6">
-                  <div style="background-color:#DCDCDC; padding:2rem">
+                  <div style="background-color:#DCDCDC;">
                     <div class="card mb-4">
                       <div class="card-body">
                         <!-- ////////////////////////// -->
