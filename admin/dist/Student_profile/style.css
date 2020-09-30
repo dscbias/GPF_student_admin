@@ -1,15 +1,17 @@
 body{
   font-family: sans-serif;
 }
-h5{
-  padding:5%;
-}
+
 .btns{
    margin:3%;
 }
 .name{
 font-size: 1.5rem;
-  font-weight: bold;
+font-weight: bold;
+padding:3%;
+}
+.para{
+  font-size: 1rem;
 }
 .profile{
 border-radius: 50%;
@@ -22,7 +24,7 @@ border:6px solid #DEDEDE;
   margin:2%;
 }
 .mainProfile{
-background: linear-gradient(to bottom, #0492C2, white 30%);
+background: linear-gradient(to bottom, #1338BE , white 30%);
 text-align: center;
 }
 .dark{
@@ -30,10 +32,6 @@ text-align: center;
   font-size: 1rem;
   font-weight: bold;
 }
-span{
-  border-radius: 20%;
-  background-color: grey;
-  line-height:3;
-  padding:1%;
-  margin:1.5%;
+.btn2{
+  margin:1%;
 }
