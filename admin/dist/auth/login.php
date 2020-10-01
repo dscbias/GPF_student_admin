@@ -1,3 +1,99 @@
+
+
+<?php
+// Initialize the session
+session_start();
+ 
+// Check if the user is already logged in, if yes then redirect him to welcome page
+if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
+    header("location: welcome.php");
+    exit;
+}
+ 
+// Include config file
+require_once "config.php";
+ 
+// Define variables and initialize with empty values
+$inputPassword = $inputEmailAddress = "";
+$email_err = $password_err = "";
+ 
+// Processing form data when form is submitted
+if($_SERVER["REQUEST_METHOD"] == "POST"){
+ 
+    // Check if username is empty
+    if(empty(trim($_POST["inputEmailAddress"]))){
+        $email_err = "Please enter email.";
+    } else{
+        $inputEmailAddress = trim($_POST["inputEmailAddress"]);
+    }
+    
+    // Check if password is empty
+    if(empty(trim($_POST["inputPassword"]))){
+        $password_err = "Please enter your password.";
+    } else{
+        $inputPassword = trim($_POST["inputPassword"]);
+    }
+    `
+    // Validate credentials
+    if(empty($email_err) && empty($password_err)){
+        // Prepare a select statement
+        $sql = "SELECT  Email, Password FROM admin WHERE Email = ?";
+        
+        if($stmt = $mysqli->prepare($sql)){
+            // Bind variables to the prepared statement as parameters
+            $stmt->bind_param("s", $param_inputEmailAddress);
+            
+            // Set parameters
+            $param_inputEmailAddress = $inputEmailAddress;
+            
+            // Attempt to execute the prepared statement
+            if($stmt->execute()){
+                // Store result
+                $stmt->store_result();
+                
+                // Check if username exists, if yes then verify password
+                if($stmt->num_rows == 1){                    
+                    // Bind result variables
+                    $stmt->bind_result( $inputEmailAddress, $hashed_password);
+                    if($stmt->fetch()){
+                        if(password_verify($inputPassword, $hashed_password)){
+                            // Password is correct, so start a new session
+                            session_start();
+                            
+                            // Store data in session variables
+                            $_SESSION['loggedin'] =true;
+							$_SESSION["Email"]=$Email;
+                            
+                            $_SESSION["inputEmailAddress"] = $inputEmailAddress;                            
+                            
+                            // Redirect user to welcome page
+                            header("location: welcome.php");
+                        } else{
+                            // Display an error message if password is not valid
+                            $password_err = "The password you entered was not valid.";
+                        }
+                    }
+                } else{
+                    // Display an error message if username doesn't exist
+                    $email_err = "No account found with that username.";
+                }
+            } else{
+                echo "Oops! Something went wrong. Please try again later.";
+            }
+
+            // Close statement
+            $stmt->close();
+        }
+    }
+    
+    // Close connection
+    $mysqli->close();
+}
+?>
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -39,13 +135,15 @@
                                     <div class="card-header"><h3 class="text-center font-weight-light my-4">Login</h3></div>
                                     <div class="card-body">
                                       <form>
-                                          <div class="form-group">
+									  <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">	
+                                          <div class="form-group"  <?php echo (!empty($email_err)) ? 'has-error' : ''; ?>">
                                               <label class="small mb-1" for="inputEmailAddress">Email</label>
-                                              <input class="form-control py-4" id="inputEmailAddress" type="email" placeholder="Enter email address" />
+                                              <input class="form-control py-4" id="inputEmailAddress" type="email" placeholder="Enter email address" value="<?php echo $inputEmailAddress; ?>" />
                                           </div>
-                                          <div class="form-group">
+                                          <div class="form-group" <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
                                               <label class="small mb-1" for="inputPassword">Password</label>
                                               <input class="form-control py-4" id="inputPassword" type="password" placeholder="Enter password" />
+											  <span class="help-block"><?php echo $password_err; ?></span>
                                           </div>
                                           <div class="form-group">
                                               <div class="custom-control custom-checkbox">
