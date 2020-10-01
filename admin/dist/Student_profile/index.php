@@ -47,8 +47,9 @@
                 <img class="profile" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Steve_Jobs_Headshot_2010-CROP.jpg/1200px-Steve_Jobs_Headshot_2010-CROP.jpg" class="card-img-top" alt="...">
                 <div class="card-body">
                   <h5 class="card-title name">Steve Jobs</h5>
-                  <button type="button" class="btn btn-info Abtn">Active</button>
-                  <button type="button" class="btn btn-info Abtn">Inactive</button>
+                  <p class="para">Organisation name</p>
+                  <button type="button" id="toggle" class="btn btn-primary Abtn" onclick="myFunction()">Active</button>
+                  <button type="button" id="toggle1" class="btn btn-primary Abtn" onclick="myFunction1()"> Student</button>
                 </div>
               </div>
               <div class="card">
@@ -62,10 +63,10 @@
                   <p class="dark">User ID</p>
                   <p>Admin</p>
                   <p class="dark">Social Links</p>
-                  <p><span> Github <ion-icon name="logo-github"></ion-icon></span>
-                    <span> LinkedIn <ion-icon name="logo-linkedin"></ion-icon> </span>
-                    <span> Instagram <ion-icon name="logo-instagram"></ion-icon> </span>
-                    <span> Facebook <ion-icon name="logo-facebook"></ion-icon> </span> </p>
+                  <button type="button" class="btn btn-secondary btn2"><ion-icon name="logo-github"></ion-icon></button>
+                  <button type="button" class="btn btn-secondary btn2"><ion-icon name="logo-linkedin"></ion-icon> </button>
+                  <button type="button" class="btn btn-secondary btn2"><ion-icon name="logo-instagram"></ion-icon> </button>
+                  <button type="button" class="btn btn-secondary btn2"><ion-icon name="logo-facebook"></ion-icon> </button>
 
                 </div>
               </div>
@@ -88,7 +89,7 @@
   <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
   <script src="../assets/demo/datatables-demo.js"></script>
   <script src="../main/scripts.js"></script>
-
+<script src="index.js"></script>
 </body>
 
 </html>
