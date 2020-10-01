@@ -1,263 +1,182 @@
-
 <?php
 // Include config file
-require_once "config.php";
+require_once "gconfig.php";
  
 // Define variables and initialize with empty values
-$inputFirstName =$inputLastName = $inputEmailAddress = $inputPassword = $inputConfirmPassword = "";
-$email_err = $firstName_err = $lastName_err = $password_err = $confirm_password_err = "";
+$username =  $email = $password = $confirm_password = "";
+$username_err = $email_err = $password_err = $confirm_password_err = "";
  
 // Processing form data when form is submitted
 if($_SERVER["REQUEST_METHOD"] == "POST"){
  
-    
-    if(empty(trim($_POST["inputFirstName"]))){
-        $firstName_err = "Please enter first name.";
+    // Validate username
+    if(empty(trim($_POST["username"]))){
+        $username_err = "Please enter a username.";
     } else{
         // Prepare a select statement
-        $sql = "SELECT Email FROM admin WHERE Fname = ?";
+        $sql = "SELECT aid FROM admin WHERE username = ?";
         
-        if($stmt = $mysqli->prepare($sql)){
+        if($stmt = mysqli_prepare($link, $sql)){
             // Bind variables to the prepared statement as parameters
-            $stmt->bind_param("s", $param_inputFirstName);
+            mysqli_stmt_bind_param($stmt, "s", $param_username);
             
             // Set parameters
-            $param_inputFirstName = trim($_POST["inputFirstName"]);
+            $param_username = trim($_POST["username"]);
             
             // Attempt to execute the prepared statement
-            if($stmt->execute()){
-                // store result
-                $stmt->store_result();
+            if(mysqli_stmt_execute($stmt)){
+                /* store result */
+                mysqli_stmt_store_result($stmt);
                 
-                if($stmt->num_rows == 1){
-                    $firstName_err = "This username is already taken.";
+                if(mysqli_stmt_num_rows($stmt) == 1){
+                    $username_err = "This username is already taken.";
                 } else{
-                    $inputFirstName = trim($_POST["inputFirstName"]);
+                    $username = trim($_POST["username"]);
                 }
             } else{
                 echo "Oops! Something went wrong. Please try again later.";
             }
 
             // Close statement
-            $stmt->close();
+            mysqli_stmt_close($stmt);
         }
     }
 	
 	
 	
-	if(empty(trim($_POST["inputLastName"]))){
-        $firstName_err = "Please enter last name.";
-    } else{
-        // Prepare a select statement
-        $sql = "SELECT Email FROM admin WHERE Lname = ?";
-        
-        if($stmt = $mysqli->prepare($sql)){
-            // Bind variables to the prepared statement as parameters
-            $stmt->bind_param("s", $param_inputLastName);
-            
-            // Set parameters
-            $param_inputLastName = trim($_POST["inputLastName"]);
-            
-            // Attempt to execute the prepared statement
-            if($stmt->execute()){
-                // store result
-                $stmt->store_result();
-                
-                if($stmt->num_rows == 1){
-                    $firstName_err = "This username is already taken.";
-                } else{
-                    $inputFirstName = trim($_POST["inputLastName"]);
-                }
-            } else{
-                echo "Oops! Something went wrong. Please try again later.";
-            }
-
-            // Close statement
-            $stmt->close();
-        }
-    }
-    
 	
-	
-	if(empty(trim($_POST["inputEmailAddress"]))){
+	if(empty(trim($_POST["email"]))){
         $email_err = "Please enter email address.";
     } else{
         // Prepare a select statement
-        $sql = "SELECT Email FROM admin WHERE Email= ?";
+        $sql = "SELECT aid FROM admin WHERE email = ?";
         
-        if($stmt = $mysqli->prepare($sql)){
+        if($stmt = mysqli_prepare($link, $sql)){
             // Bind variables to the prepared statement as parameters
-            $stmt->bind_param("s", $param_inputEmailAddress);
+            mysqli_stmt_bind_param($stmt, "s", $param_email);
             
             // Set parameters
-            $param_inputEmailAddress = trim($_POST["inputEmailAddress"]);
+            $param_email = trim($_POST["email"]);
             
             // Attempt to execute the prepared statement
-            if($stmt->execute()){
-                // store result
-                $stmt->store_result();
+            if(mysqli_stmt_execute($stmt)){
+                /* store result */
+                mysqli_stmt_store_result($stmt);
                 
-                if($stmt->num_rows == 1){
-                    $email_err = "This username is already taken.";
+                if(mysqli_stmt_num_rows($stmt) == 1){
+                    $email_err = "This email is already taken.";
                 } else{
-                    $inputFirstName = trim($_POST["inputEmailAddress"]);
+                    $email = trim($_POST["email"]);
                 }
             } else{
                 echo "Oops! Something went wrong. Please try again later.";
             }
 
             // Close statement
-            $stmt->close();
+            mysqli_stmt_close($stmt);
         }
     }
-    
-	
 	
 	
     
     // Validate password
-    if(empty(trim($_POST["inputPassword"]))){
+    if(empty(trim($_POST["password"]))){
         $password_err = "Please enter a password.";     
-    } elseif(strlen(trim($_POST["inputPassword"])) < 6){
+    } elseif(strlen(trim($_POST["password"])) < 6){
         $password_err = "Password must have atleast 6 characters.";
     } else{
-        $inputPassword = trim($_POST["inputPassword"]);
+        $password = trim($_POST["password"]);
     }
     
+	
+	
+	
+	
     // Validate confirm password
-    if(empty(trim($_POST["inputConfirmPassword"]))){
+    if(empty(trim($_POST["confirm_password"]))){
         $confirm_password_err = "Please confirm password.";     
     } else{
-        $confirm_password = trim($_POST["inputConfirmPassword"]);
-        if(empty($password_err) && ($inputPassword != $inputConfirmPassword)){
+        $confirm_password = trim($_POST["confirm_password"]);
+        if(empty($password_err) && ($password != $confirm_password)){
             $confirm_password_err = "Password did not match.";
         }
     }
     
     // Check input errors before inserting in database
-    if(empty($firstName_err_err) && empty($password_err) && empty($confirm_password_err) && empty($lastName_err) && empty($email_err)){
+    if(empty($username_err) && empty($password_err) && empty($confirm_password_err)){
         
         // Prepare an insert statement
-        $sql = "INSERT INTO admin (inputFirstName,inputLastName,inputPassword,inputEmailAddress) VALUES (?, ?,?,?)";
+        $sql = "INSERT INTO admin (username,email, password) VALUES (?, ?, ?)";
          
-        if($stmt = $mysqli->prepare($sql)){
+        if($stmt = mysqli_prepare($link, $sql)){
             // Bind variables to the prepared statement as parameters
-            $stmt->bind_param("ss", $param_inputFirstName,$param_inputLastName , $param_inputPassword,$inputEmailAddress);
+            mysqli_stmt_bind_param($stmt, "sss", $param_username,$param_email, $param_password);
             
             // Set parameters
-            $param_inputFirstName = $inputFirstName;
-			$param_inputLastName = $inputLastName;
-			$param_inputEmailAddress = $inputEmailAddress;
-			
-            $param_password = password_hash($inputPassword, PASSWORD_DEFAULT); // Creates a password hash
+            $param_username = $username;
+			$param_email = $email;
+            $param_password = password_hash($password, PASSWORD_DEFAULT); // Creates a password hash
             
             // Attempt to execute the prepared statement
-            if($stmt->execute()){
+            if(mysqli_stmt_execute($stmt)){
                 // Redirect to login page
-                header("location: login.php");
+                header("location: glogin.php");
             } else{
                 echo "Something went wrong. Please try again later.";
             }
 
             // Close statement
-            $stmt->close();
+            mysqli_stmt_close($stmt);
         }
     }
     
     // Close connection
-    $mysqli->close();
+    mysqli_close($link);
 }
 ?>
  
-
-
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-        <title>Page Title - SB Admin</title>
-        <link href="/admin/dist/css/styles.css" rel="stylesheet" />
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" crossorigin="anonymous"></script>
-    </head>
-    <body class="bg-primary">
-        <div id="layoutAuthentication">
-            <div id="layoutAuthentication_content">
-                <main>
-                    <div class="container">
-                        <div class="row justify-content-center">
-                            <div class="col-lg-7">
-                                <div class="card shadow-lg border-0 rounded-lg mt-5">
-                                    <div class="card-header"><h3 class="text-center font-weight-light my-4">Create Account</h3></div>
-                                    <div class="card-body">
-                                        <form action="register.php">
-
-                                            <div class="form-row">
-                                                <div class="col-md-6">
-                                                    <div class="form-group" <?php echo (!empty($firstName_err)) ? 'has-error' : ''; ?>">
-                                                        <label class="small mb-1" for="inputFirstName">First Name</label>
-                                                        <input class="form-control py-4" id="inputFirstName" type="text" placeholder="Enter first name" value="<?php echo $inputFirstName ?>" />
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <div class="form-group" <?php echo (!empty($lastName_err)) ? 'has-error' : ''; ?>">
-                                                        <label class="small mb-1" for="inputLastName">Last Name</label>
-                                                        <input class="form-control py-4" id="inputLastName" type="text" placeholder="Enter last name" value="<?php echo $inputLastName; ?>"/>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="form-group" <?php echo (!empty($email_err)) ? 'has-error' : ''; ?>" >
-                                                <label class="small mb-1" for="inputEmailAddress">Email</label>
-                                                <input class="form-control py-4" id="inputEmailAddress" type="email" aria-describedby="emailHelp" placeholder="Enter email address" value="<?php echo $inputEmailAddress; ?>/>
-                                            </div>
-                                            <div class="form-row">
-                                                <div class="col-md-6">
-                                                    <div class="form-group" <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
-                                                        <label class="small mb-1" for="inputPassword">Password</label>
-                                                        <input class="form-control py-4" id="inputPassword" type="password" placeholder="Enter password"value="<?php echo $inputPassword; ?>" />
-														
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label class="small mb-1" for="inputConfirmPassword">Confirm Password</label>
-                                                        <input class="form-control py-4" id="inputConfirmPassword" type="password" placeholder="Confirm password" value="<?php echo $inputConfirmPassword; ?>"/>
-														<span class="help-block"><?php echo $confirm_password_err; ?></span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="form-group mt-4 mb-0"><a class="btn btn-primary btn-block" href="login.php">Create Account</a></div>
-                                        </form>
-                                    </div>
-                                    <div class="card-footer text-center">
-                                        <div class="small"><a href="login.php">Have an account? Go to login</a></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </main>
+<head>
+    <meta charset="UTF-8">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
+    <style type="text/css">
+        body{ font: 14px sans-serif; }
+        .wrapper{ width: 350px; padding: 20px; }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <h2>Sign Up</h2>
+        <p>Please fill this form to create an account.</p>
+        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+            <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
+                <label>Username</label>
+                <input type="text" name="username" class="form-control" value="<?php echo $username; ?>">
+                <span class="help-block"><?php echo $username_err; ?></span>
+            </div>    
+			<div class="form-group <?php echo (!empty($email_err)) ? 'has-error' : ''; ?>">
+                <label>Email</label>
+                <input type="email" name="email" class="form-control" value="<?php echo $email; ?>">
+                <span class="help-block"><?php echo $email_err; ?></span>
+            </div>    
+            <div class="form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
+                <label>Password</label>
+                <input type="password" name="password" class="form-control" value="<?php echo $password; ?>">
+                <span class="help-block"><?php echo $password_err; ?></span>
             </div>
-            <div id="layoutAuthentication_footer">
-                <footer class="py-4 bg-light mt-auto">
-                    <div class="container-fluid">
-                        <div class="d-flex align-items-center justify-content-between small">
-                            <div class="text-muted">Copyright &copy; Your Website 2020</div>
-                            <div>
-                                <a href="#">Privacy Policy</a>
-                                &middot;
-                                <a href="#">Terms &amp; Conditions</a>
-                            </div>
-                        </div>
-                    </div>
-                </footer>
+            <div class="form-group <?php echo (!empty($confirm_password_err)) ? 'has-error' : ''; ?>">
+                <label>Confirm Password</label>
+                <input type="password" name="confirm_password" class="form-control" value="<?php echo $confirm_password; ?>">
+                <span class="help-block"><?php echo $confirm_password_err; ?></span>
             </div>
-        </div>
-        <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-        <script src="/admin/dist/js/scripts.js"></script>
-    </body>
+            <div class="form-group">
+                <input type="submit" class="btn btn-primary" value="Submit">
+                <input type="reset" class="btn btn-default" value="Reset">
+            </div>
+            <p>Already have an account? <a href="glogin.php">Login here</a>.</p>
+        </form>
+    </div>    
+</body>
 </html>
