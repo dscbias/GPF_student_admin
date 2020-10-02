@@ -44,7 +44,10 @@
               <div class="row">
 
                 <div class="col-lg-6">
-                  <form style="background-color:#DCDCDC; padding:2rem">
+                  <form action="insert.php" method="POST" style="background-color:#DCDCDC; padding:2rem;">
+                    <div class="">
+
+
 
                     <div class="form-group">
                       <label for="titlename"><b>Title</b></label>
@@ -85,13 +88,13 @@
                       <label for="Event"><b>Event Description</b></label>
                       <textarea class="form-control" id="Event Description" rows="6"></textarea>
                     </div>
-                  </form>
+                  </div>
 
                 </div>
 
                 <hr>
                 <div class="col-lg-5">
-                  <form style="background-color:#DCDCDC ; padding:2rem">
+                  <div style="background-color:#DCDCDC ; padding:2rem">
                     <div class="form-group">
                       <label for="attach"><b>Attachments</b></label>
                       <input type="file" class="form-control-file" id="attach">
@@ -127,7 +130,8 @@
                       </div>
                     </div>
                     <br><br>
-                    <button type="submit" class="btn btn-info btn-lg">Submit</button>
+                    <input type="submit" class="btn btn-info btn-lg" value="Submit"></input>
+                  </div>
                   </form>
                 </div>
               </div>
