@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   <meta name="description" content="" />
   <meta name="author" content="" />
-  <title>Add Task</title>
+  <title>Departments</title>
 
   <link href="../css/styles.css" rel="stylesheet" />
   <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
@@ -31,111 +31,137 @@
 
     <div id="layoutSidenav_content">
       <main>
-        <div class="container-fluid">
-          <h1 class="mt-4">Add Task</h1>
-          <ol class="breadcrumb mb-4">
-            <li class="breadcrumb-item"><a href="/admin/dist/index.php">Dashboard</a></li>
-            <li class="breadcrumb-item active">Add Task</li>
-          </ol>
-          <div class="card mb-4">
-            <div class="card-body">
+          <div class="container-fluid">
+            <h1 class="mt-4">ADD TASK</h1>
+            <ol class="breadcrumb mb-4">
+                <li class="breadcrumb-item"><a href="/admin/dist/index.php">Dashboard</a></li>
+                <li class="breadcrumb-item active">Add Task</li>
+            </ol>
+              <div class="card mb-4">
+                  <div class="card-body">
+                    
+                    
+        <!--          Write your Code here....              -->
 
+<div class="row">
+     
+     <div class="col-lg-6">
+        <form action="insert.php" method="POST">
+ 
 
-              <div class="row">
+    <!-- first div -->
 
-                <div class="col-lg-6">
-                  <form action="insert.php" method="POST" style="background-color:#DCDCDC; padding:2rem;">
-                    <div class="">
+          <div class="container" style="background-color:#e9ecee; padding:2rem">
 
+          <div class="form-group">
+              <label for="titlename"><b>Title</b></label>
+              <input type="text" class="form-control" id="titlename">
+          </div>
+           <br>
 
+          <div class="form-group">
+             
+              <label for="start" style="padding-right:1rem;"><b>Start</b> 
+              <br> <br>
+                   
+                <label for="day">Day</label>
+                <input type="date" class="form-control" id="day">
+               
+                <label for="time">Time</label>
+                <input type="time" class="form-control" id="time">
+                </label>
+                          
 
-                    <div class="form-group">
-                      <label for="titlename"><b>Title</b></label>
-                      <input type="text" class="form-control" id="titlename">
-                    </div>
-                    <br>
-
-                    <div class="form-group">
-
-                      <label for="start" style="padding-right:1rem;"><b>Start</b>
-                        <br> <br>
-
-                        <label for="day">Day</label>
-                        <input type="date" class="form-control" id="day">
-
-                        <label for="time">Time</label>
-                        <input type="time" class="form-control" id="time">
-                      </label>
-
-
-
-                      <label for="start"><b>End</b>
-                        <br><br>
-                        <label for="day">Day</label>
-                        <input type="date" class="form-control" id="day">
-                        <label for="time">Time</label>
-                        <input type="time" class="form-control" id="time">
-                      </label>
-                    </div>
-
-
-                    <div class="form-group">
-                      <label for="loc"><b>Location</b></label>
-                      <input type="text" class="form-control" id="loc">
-                    </div>
-
-                    <div class="form-group">
-                      <label for="Event"><b>Event Description</b></label>
-                      <textarea class="form-control" id="Event Description" rows="6"></textarea>
-                    </div>
-                  </div>
-
+             
+              <label for="start" ><b>End</b>
+              <br><br>
+                <label for="day">Day</label>
+                <input type="date" class="form-control" id="day">
+                <label for="time">Time</label>
+                <input type="time" class="form-control" id="time">
+                </label>
                 </div>
+            
+  
+          <div class="form-group">
+              <label for="loc"><b>Location</b></label>
+              <input type="text" class="form-control" id="loc">
+          </div>
+  
+          <div class="form-group">
+              <label for="Event"><b>Event Description</b></label>
+              <textarea class="form-control" id="Event Description" rows="6"></textarea>
+          </div>
+          </div>
 
-                <hr>
-                <div class="col-lg-5">
-                  <div style="background-color:#DCDCDC ; padding:2rem">
-                    <div class="form-group">
-                      <label for="attach"><b>Attachments</b></label>
-                      <input type="file" class="form-control-file" id="attach">
-                    </div>
+      </div>
 
-                    <br>
+    <hr>
 
-                    <div class="form-group">
-                      <label for="search"><b>Add Participants : </b></label>
-                      <div class="form-inline">
-                        <input class="form-control" type="text" placeholder="Enter Name" aria-label="Search" id="search">
-
-                        <i class="fas fa-search" aria-hidden="true"></i>
-
-                        <!-- <rough checkboxes> -->
+     <!-- second div -->
 
 
-                        <div class="container" style="border:1px solid #ccc; height: 6rem; overflow-y: scroll;">
-                          <input type="checkbox" /> This is checkbox <br />
-                          <input type="checkbox" /> This is checkbox <br />
-                          <input type="checkbox" /> This is checkbox <br />
-                          <input type="checkbox" /> This is checkbox <br />
-                          <input type="checkbox" /> This is checkbox <br />
-                          <input type="checkbox" /> This is checkbox <br />
-                          <input type="checkbox" /> This is checkbox <br />
-                          <input type="checkbox" /> This is checkbox <br />
-                          <input type="checkbox" /> This is checkbox <br />
-                          <input type="checkbox" /> This is checkbox <br />
-                        </div>
+      <div class="col-lg-4">
+      <div class="container" style= "background-color:#e9ecee; padding:2rem; height: 100%; " >
+            <div class="form-group">
+            <label for="attach"><b>Attachments</b></label>
+            <input type="file" class="form-control-file" id="attach">
+             </div>
+  
+  <br>
 
-                        <!-- enter the ajax request here -->
+        <div class="form-group">
+        <label for="search"><b>Add Participants : </b></label>
+          <div class="form-inline">
+        <input class="form-control" type="text" placeholder="Enter Name" aria-label="Search" id="search">
+        
+         <i class="fas fa-search" aria-hidden="true"></i>
 
-                      </div>
-                    </div>
-                    <br><br>
-                    <input type="submit" class="btn btn-info btn-lg" value="Submit"></input>
-                  </div>
-                  </form>
-                </div>
-              </div>
-            </div>
+         <!-- <rough checkboxes> -->
+         
+         
+         <div class="container" style="border:1px solid #ccc; height: 6rem; overflow-y: scroll;">
+    <input type="checkbox" /> This is checkbox <br />
+    <input type="checkbox" /> This is checkbox <br />
+    <input type="checkbox" /> This is checkbox <br />
+    <input type="checkbox" /> This is checkbox <br />
+    <input type="checkbox" /> This is checkbox <br />
+    <input type="checkbox" /> This is checkbox <br />
+    <input type="checkbox" /> This is checkbox <br />
+    <input type="checkbox" /> This is checkbox <br />
+    <input type="checkbox" /> This is checkbox <br />
+    <input type="checkbox" /> This is checkbox <br />
+</div>
+          
+         <!-- enter the ajax request here -->
+
+          </div>
+        </div>     
+
+      <br><br> 
+      <center><button type="submit"  class="btn btn-block btn-lg" style="background-color:#007bff ; color:white; font-family:sans-serif">SUBMIT</button></center>
+
+         </div>
+         </form>
+          </div>
+    
+
+   <!-- ongoing events -->
+   <div class="col-lg-2">
+   <div class="container" style="background-color:#D1CFCF; height: 100%; " >
+   <br>
+  <center><p style="color:black; font-family:Verdana, Arial, Helvetica, sans-serif;;"><b>ONGOING <br>EVENTS</b></p></center>
+
+  <!-- ongoing events need Server communication and ajax to upload -->
+  <!-- back end work here -->
+</div>
+
+</div>
+    
+
+
+     </div>
+              
           </div>
         </div>
       </main>
