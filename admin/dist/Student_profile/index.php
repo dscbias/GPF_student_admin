@@ -48,8 +48,8 @@
                 <div class="card-body">
                   <h5 class="card-title name">Steve Jobs</h5>
                   <p class="para">Organisation name</p>
-                  <button type="button" id="toggle" class="btn btn-primary Abtn" onclick="myFunction()">Active</button>
-                  <button type="button" id="toggle1" class="btn btn-primary Abtn" onclick="myFunction1()"> Student</button>
+                  <button type="button" class="btn btn-primary Abtn">Active</button>
+                  <button type="button" class="btn btn-primary Abtn"> Student</button>
                 </div>
               </div>
               <div class="card">
@@ -89,7 +89,7 @@
   <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
   <script src="../assets/demo/datatables-demo.js"></script>
   <script src="../main/scripts.js"></script>
-<script src="index.js"></script>
+
 </body>
 
 </html>
