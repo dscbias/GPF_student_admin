@@ -1,0 +1,82 @@
+body{
+  font-family: sans-serif;
+}
+.card1{
+  padding-left: 0;
+  padding-right: 0;
+}
+.profileimg{
+  border-radius: 50%;
+  width: 70%;
+margin-left: 50px;
+  max-height: auto;
+  border:6px solid #DEDEDE;
+}
+.circle{
+  margin-left: 245px;
+  position: absolute;
+  bottom: 30px;
+  height: 40px;
+  width:40px;
+  display: flex;
+  color: green;
+  align-items: center;
+  justify-content: center;
+
+}
+.container{
+  margin-left: 0;
+}
+.facebook{
+  color:blue;
+  border: none;
+background-color: white;
+}
+.insta{
+  color: #E91E63;
+  border: none;
+  background-color: white;
+}
+.twitter{
+  color:#01B9F5;
+  border: none;
+  background-color: white;
+}
+.linkedin{
+color:blue;
+border: none;
+background-color: white;
+}
+.share{
+  margin-left:133px;
+  border: none;
+  background-color: white;
+}
+.btns{
+margin-left: 165px;
+font-size: 1.5rem;
+}
+
+.cbody{
+  background-color: #FAFAFA;
+  margin:2% 0;
+
+}
+.submit{
+  margin-top:10px;
+}
+.container{
+  background-color: white;
+}
+.name{
+  color:#0275d8;
+}
+.head1{
+  color: grey;
+
+}
+.container1{
+background-color: #FAFAFA ;
+height:100px;
+overflow: auto;
+}
